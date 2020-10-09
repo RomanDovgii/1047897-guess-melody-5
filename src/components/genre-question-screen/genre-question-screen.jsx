@@ -86,7 +86,7 @@ GenreQuestionScreen.propTypes = {
       genre: PropTypes.string.isRequired,
     })).isRequired,
     genre: PropTypes.string.isRequired,
-    type: PropTypes.oneOf([GameType.MUSICIAN, GameType.GENRE]).isRequired,
+    type: PropTypes.oneOf([GameType.GENRE]).isRequired,
   }).isRequired,
 };
 

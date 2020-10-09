@@ -27,13 +27,13 @@ const App = (props) => {
         />
         <Route exact path="/dev-artist">
           <MusicianQuestionScreen
-            question={firstQuestion}
+            question={secondQuestion}
             onAnswer={() => {}}
           />
         </Route>
         <Route exact path="/dev-genre">
           <GenreQuestionSreen
-            question={secondQuestion}
+            question={firstQuestion}
             onAnswer={() => {}}
           />
         </Route>
@@ -59,7 +59,7 @@ const App = (props) => {
 
 App.propTypes = {
   errorsCount: PropTypes.number.isRequired,
-  questions: PropTypes.array.isRequired
+  questions: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default App;
