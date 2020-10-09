@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {GameType} from "../../utils/const";
+import {MusicianQuestionScreenType} from "../types/types";
 
 const MusicianQuestionScreen = (props) => {
   const {onAnswer, question} = props;
@@ -65,19 +64,6 @@ const MusicianQuestionScreen = (props) => {
   );
 };
 
-MusicianQuestionScreen.propTypes = {
-  onAnswer: PropTypes.func.isRequired,
-  question: PropTypes.shape({
-    answers: PropTypes.arrayOf(PropTypes.shape({
-      musician: PropTypes.string.isRequired,
-      picture: PropTypes.string.isRequired
-    })).isRequired,
-    song: PropTypes.shape({
-      musician: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired
-    }).isRequired,
-    type: PropTypes.oneOf([GameType.MUSICIAN]).isRequired
-  }).isRequired
-};
+MusicianQuestionScreen.propTypes = MusicianQuestionScreenType;
 
 export default MusicianQuestionScreen;
