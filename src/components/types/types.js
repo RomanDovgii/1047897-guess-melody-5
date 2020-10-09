@@ -38,27 +38,7 @@ const OnPlayButtonClickType = {
 };
 
 export const QuestionsType = {
-  questions: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.shape({
-      answers: PropTypes.arrayOf(PropTypes.shape({
-        musician: PropTypes.string.isRequired,
-        picture: PropTypes.string.isRequired
-      })).isRequired,
-      song: PropTypes.shape({
-        musician: PropTypes.string.isRequired,
-        src: PropTypes.string.isRequired
-      }).isRequired,
-      type: PropTypes.string.isRequired
-    }).isRequired,
-    PropTypes.shape({
-      answers: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-      })).isRequired,
-      genre: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-    }).isRequired
-  ])).isRequired
+  questions: PropTypes.arrayOf(PropTypes.oneOfType([MusicianQuestionType.question, GenreQuestionType.question])).isRequired
 };
 
 export const welcomeType = Object.assign({}, ErrorsCountType, OnPlayButtonClickType);

@@ -10,33 +10,20 @@ const getRandomElementFromArray = (array) => {
 const generateAnswers = (questionType) => {
   switch (questionType) {
     case GameType.GENRE:
-      const genreQuestions = [];
-
-      genres.map((genreLocal) => {
-        const answer = {
+      return genres.map((genreLocal) => {
+        return {
           src: AUDIO_URL,
           genre: genreLocal
         };
-
-        genreQuestions.push(answer);
       });
 
-
-      return genreQuestions;
-
     case GameType.MUSICIAN:
-      const musicianQuestions = [];
-
-      musicians.map((musicianLocal) => {
-        const answer = {
+      return musicians.map((musicianLocal) => {
+        return {
           picture: `${AVATAR_URL}/${Math.random()}`,
           musician: musicianLocal
         };
-
-        musicianQuestions.push(answer);
       });
-
-      return musicianQuestions;
 
     default:
       return [];
