@@ -2,8 +2,6 @@ import React from "react";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import WelcomeScreen from "../welcome-screen/welcome-screen";
 import LoginScreen from "../login-screen/login-screen";
-import MusicianQuestionScreen from "../musician-question-screen/musician-question-screen";
-import GenreQuestionSreen from "../genre-question-screen/genre-question-screen";
 import WinScreen from "../win-screen/win-screen";
 import LoseScreen from "../lose-screen/lose-screen";
 import GameScreen from "../game-screen/game-screen";
