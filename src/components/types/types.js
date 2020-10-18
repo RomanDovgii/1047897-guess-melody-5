@@ -1,6 +1,17 @@
 import PropTypes from "prop-types";
 
-const MusicianQuestionType = {
+const requiredFunctionType = PropTypes.func.isRequired;
+
+const isPlayingType = {
+  isPlaying: PropTypes.bool.isRequired
+};
+
+const srcType = {
+  src: PropTypes.string.isRequired
+};
+
+
+const musicianQuestionType = {
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
       musician: PropTypes.string.isRequired,
@@ -14,7 +25,7 @@ const MusicianQuestionType = {
   }).isRequired
 };
 
-const GenreQuestionType = {
+const genreQuestionType = {
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
       src: PropTypes.string.isRequired,
@@ -25,26 +36,32 @@ const GenreQuestionType = {
   }).isRequired
 };
 
-const AnswerType = {
+const answerType = {
   onAnswer: PropTypes.func.isRequired
 };
 
-const ErrorsCountType = {
+const errorsCountType = {
   errorsCount: PropTypes.number.isRequired
 };
 
-const OnPlayButtonClickType = {
-  onPlayButtonClick: PropTypes.func.isRequired
+const renderPlayerType = {
+  renderPlayer: requiredFunctionType
 };
 
-export const QuestionsType = {
-  questions: PropTypes.arrayOf(PropTypes.oneOfType([MusicianQuestionType.question, GenreQuestionType.question])).isRequired
+const onPlayButtonClickType = {
+  onPlayButtonClick: requiredFunctionType
 };
 
-export const welcomeType = Object.assign({}, ErrorsCountType, OnPlayButtonClickType);
+export const questionsType = {
+  questions: PropTypes.arrayOf(PropTypes.oneOfType([musicianQuestionType.question, genreQuestionType.question])).isRequired
+};
 
-export const appType = Object.assign({}, ErrorsCountType, QuestionsType);
+export const welcomeType = Object.assign({}, errorsCountType, onPlayButtonClickType);
 
-export const MusicianQuestionScreenType = Object.assign({}, AnswerType, MusicianQuestionType);
+export const appType = Object.assign({}, errorsCountType, questionsType);
 
-export const GenreQuestionScreenType = Object.assign({}, AnswerType, GenreQuestionType);
+export const musicianQuestionScreenType = Object.assign({}, answerType, musicianQuestionType, renderPlayerType);
+
+export const genreQuestionScreenType = Object.assign({}, answerType, genreQuestionType, renderPlayerType);
+
+export const audioPlayerType = Object.assign({}, onPlayButtonClickType, isPlayingType, srcType);
