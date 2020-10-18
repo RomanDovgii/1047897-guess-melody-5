@@ -11,7 +11,6 @@ import {appType} from "../types/types";
 
 const App = (props) => {
   const {errorsCount, questions} = props;
-  const [firstQuestion, secondQuestion] = questions;
   return (
     <BrowserRouter>
       <Switch>
@@ -25,18 +24,6 @@ const App = (props) => {
             />
           )}
         />
-        <Route exact path="/dev-artist">
-          <MusicianQuestionScreen
-            question={secondQuestion}
-            onAnswer={() => {}}
-          />
-        </Route>
-        <Route exact path="/dev-genre">
-          <GenreQuestionSreen
-            question={firstQuestion}
-            onAnswer={() => {}}
-          />
-        </Route>
         <Route exact path="/login">
           <LoginScreen />
         </Route>
