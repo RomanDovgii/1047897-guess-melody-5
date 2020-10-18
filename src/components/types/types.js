@@ -44,6 +44,10 @@ const errorsCountType = {
   errorsCount: PropTypes.number.isRequired
 };
 
+const renderPlayerType = {
+  renderPlayer: requiredFunctionType
+};
+
 const onPlayButtonClickType = {
   onPlayButtonClick: requiredFunctionType
 };
@@ -56,8 +60,8 @@ export const welcomeType = Object.assign({}, errorsCountType, onPlayButtonClickT
 
 export const appType = Object.assign({}, errorsCountType, questionsType);
 
-export const musicianQuestionScreenType = Object.assign({}, answerType, musicianQuestionType);
+export const musicianQuestionScreenType = Object.assign({}, answerType, musicianQuestionType, renderPlayerType);
 
-export const genreQuestionScreenType = Object.assign({}, answerType, genreQuestionType);
+export const genreQuestionScreenType = Object.assign({}, answerType, genreQuestionType, renderPlayerType);
 
 export const audioPlayerType = Object.assign({}, onPlayButtonClickType, isPlayingType, srcType);
