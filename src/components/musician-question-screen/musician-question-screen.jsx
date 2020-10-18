@@ -1,8 +1,8 @@
 import React from "react";
-import {MusicianQuestionScreenType} from "../types/types";
+import {musicianQuestionScreenType} from "../types/types";
 
 const MusicianQuestionScreen = (props) => {
-  const {onAnswer, question} = props;
+  const {onAnswer, question, renderPlayer} = props;
   const {song, answers} = question;
 
   return (
@@ -29,10 +29,7 @@ const MusicianQuestionScreen = (props) => {
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio src={song.src}/>
-            </div>
+            {renderPlayer(song.src, 0)}
           </div>
         </div>
 
@@ -64,6 +61,6 @@ const MusicianQuestionScreen = (props) => {
   );
 };
 
-MusicianQuestionScreen.propTypes = MusicianQuestionScreenType;
+MusicianQuestionScreen.propTypes = musicianQuestionScreenType;
 
 export default MusicianQuestionScreen;
