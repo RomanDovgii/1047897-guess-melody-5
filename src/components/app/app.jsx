@@ -5,7 +5,6 @@ import LoginScreen from "../login-screen/login-screen";
 import WinScreen from "../win-screen/win-screen";
 import LoseScreen from "../lose-screen/lose-screen";
 import GameScreen from "../game-screen/game-screen";
-import {appType} from "../types/types";
 import {MAX_MISTAKE_COUNT} from "../../utils/const";
 
 const App = () => {
@@ -40,7 +39,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
-App.propTypes = appType;
 
 export default App;
