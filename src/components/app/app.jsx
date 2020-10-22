@@ -6,9 +6,9 @@ import WinScreen from "../win-screen/win-screen";
 import LoseScreen from "../lose-screen/lose-screen";
 import GameScreen from "../game-screen/game-screen";
 import {appType} from "../types/types";
+import {MAX_MISTAKE_COUNT} from "../../utils/const";
 
-const App = (props) => {
-  const {errorsCount, questions} = props;
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -18,7 +18,7 @@ const App = (props) => {
           render={({history}) => (
             <WelcomeScreen
               onPlayButtonClick={() => history.push(`/game`)}
-              errorsCount={errorsCount}
+              errorsCount={MAX_MISTAKE_COUNT}
             />
           )}
         />
@@ -33,8 +33,7 @@ const App = (props) => {
         </Route>
         <Route exact path="/game">
           <GameScreen
-            errorsCount={errorsCount}
-            questions={questions}
+            errorsCount={MAX_MISTAKE_COUNT}
           />
         </Route>
       </Switch>
