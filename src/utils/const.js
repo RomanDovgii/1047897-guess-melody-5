@@ -3,6 +3,7 @@ export const AUDIO_URL = `https://upload.wikimedia.org/wikipedia/commons/4/4e/BW
 
 export const GENRE_QUESTIONS_COUNT = 4;
 export const MUSICIAN_QUESTIONS_COUNT = 4;
+export const MAX_MISTAKE_COUNT = 3;
 
 export const GameType = {
   MUSICIAN: `musician`,
@@ -22,3 +23,8 @@ export const musicians = [
   `Jack Daniels`
 ];
 
+export const ActionType = {
+  INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
+  INCREMENT_STEP: `INCREMENT_STEP`,
+  RESET_GAME: `RESET_GAME`
+};
