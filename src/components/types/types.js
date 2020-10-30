@@ -56,8 +56,12 @@ const childrenType = {
   children: PropTypes.element.isRequired
 };
 
+const questionType = {
+  question: PropTypes.oneOfType([musicianQuestionType.question, genreQuestionType.question]).isRequired
+};
+
 export const questionsType = {
-  questions: PropTypes.arrayOf(PropTypes.oneOfType([musicianQuestionType.question, genreQuestionType.question])).isRequired
+  questions: PropTypes.arrayOf(questionsType.question).isRequired
 };
 
 export const mistakesType = {
@@ -126,3 +130,7 @@ export const winScreenType = Object.assign({}, questionsCountType, mistakesCount
 export const gameScreenType = Object.assign({}, questionsType, stepType, onUserAnswerType, mistakesType);
 
 export const PlayerType = Object.assign({}, isLoadingType, onPlayButtonClickType, isPlayingType, childrenType);
+
+export const withUserAnswerType = Object.assign({}, questionType, onAnswerType);
+
+export const withAudioType = Object.assign({}, isPlayingType, onPlayButtonClickType, srcType);

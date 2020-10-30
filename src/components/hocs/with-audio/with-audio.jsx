@@ -1,4 +1,5 @@
 import React, {createRef, PureComponent} from "react";
+import {withAudioType} from "../../types/types";
 
 const withAudio = (Component) => {
   class WithAudio extends PureComponent {
@@ -55,7 +56,7 @@ const withAudio = (Component) => {
     }
   }
 
-  WithAudio.propTypes = {};
+  WithAudio.propTypes = withAudioType;
 
   return WithAudio;
 };
