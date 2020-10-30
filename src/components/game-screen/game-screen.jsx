@@ -1,26 +1,31 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {GameType} from "../../utils/const";
+import {GameType, MAX_MISTAKE_COUNT} from "../../utils/const";
 import MusicianQuestionScreen from "../musician-question-screen/musician-question-screen";
 import GenreQuestionSreen from "../genre-question-screen/genre-question-screen";
-import {questionsType} from "../types/types";
+import {gameScreenType} from "../types/types";
 import withAudioPlayer from "../hocs/with-audio-player/with-audio-player";
+import withUserAnswer from "../hocs/with-user-answer/with-user-answer";
 import {ActionCreator} from "../../store/action";
 import Mistakes from "../mistakes/mistakes";
 
-const GenreQuestionSreenWrapper = withAudioPlayer(GenreQuestionSreen);
+const GenreQuestionSreenWrapper = withAudioPlayer(withUserAnswer(GenreQuestionSreen));
 const MusicicanQuestionScreenWrapper = withAudioPlayer(MusicianQuestionScreen);
 
 const GameScreen = (props) => {
-  const {questions, step, onUserAnswer, resetGame, mistakes} = props;
+  const {questions, step, onUserAnswer, mistakes} = props;
   const question = questions[step];
 
-  if (step >= questions.length || !question) {
-    resetGame();
-
+  if (mistakes >= MAX_MISTAKE_COUNT) {
     return (
-      <Redirect to="/" />
+      <Redirect to="/lose"/>
+    );
+  }
+
+  if (step >= questions.length || !question) {
+    return (
+      <Redirect to="/result"/>
     );
   }
 
@@ -31,7 +36,7 @@ const GameScreen = (props) => {
           question={question}
           onAnswer={onUserAnswer}
         >
-          <Mistakes count={mistakes}/>
+          <Mistakes mistakesCount={mistakes}/>
         </MusicicanQuestionScreenWrapper>
       );
     case GameType.GENRE:
@@ -40,7 +45,7 @@ const GameScreen = (props) => {
           question={question}
           onAnswer={onUserAnswer}
         >
-          <Mistakes count={mistakes}/>
+          <Mistakes mistakesCount={mistakes}/>
         </GenreQuestionSreenWrapper>
       );
   }
@@ -48,7 +53,7 @@ const GameScreen = (props) => {
   return <Redirect to="/" />;
 };
 
-GameScreen.propTypes = questionsType;
+GameScreen.propTypes = gameScreenType;
 
 const mapStateToProps = (state) => ({
   step: state.step,

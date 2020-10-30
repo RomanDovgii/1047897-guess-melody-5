@@ -36,7 +36,7 @@ const genreQuestionType = {
   }).isRequired
 };
 
-const answerType = {
+const onAnswerType = {
   onAnswer: PropTypes.func.isRequired
 };
 
@@ -61,13 +61,68 @@ export const questionsType = {
 };
 
 export const mistakesType = {
-  count: PropTypes.number.isRequired
+  mistakes: PropTypes.number.isRequired
+};
+
+const questionsCountType = {
+  questionsCount: PropTypes.number.isRequired
+};
+
+export const mistakesCountType = {
+  mistakesCount: PropTypes.number.isRequired
+};
+
+export const onReplayButtonClickType = {
+  onReplayButtonClick: PropTypes.func.isRequired
+};
+
+const stepType = {
+  step: PropTypes.number.isRequired
+};
+
+const onUserAnswerType = {
+  onUserAnswer: PropTypes.func.isRequired
+};
+
+const answerType = {
+  answer: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired
+  })
+};
+
+const idType = {
+  id: PropTypes.number.isRequired
+};
+
+const onChangeType = {
+  onChange: PropTypes.func.isRequired
+};
+
+const userAnswerType = {
+  userAnswer: PropTypes.bool.isRequired
+};
+
+const userAnswersType = {
+  userAnswers: PropTypes.arrayOf(userAnswerType.userAnswer).isRequired
+};
+
+const isLoadingType = {
+  isLoading: PropTypes.bool.isRequired
 };
 
 export const welcomeType = Object.assign({}, errorsCountType, onPlayButtonClickType);
 
-export const musicianQuestionScreenType = Object.assign({}, answerType, musicianQuestionType, renderPlayerType, childrenType);
+export const musicianQuestionScreenType = Object.assign({}, onAnswerType, musicianQuestionType, renderPlayerType, childrenType);
 
-export const genreQuestionScreenType = Object.assign({}, answerType, genreQuestionType, renderPlayerType, childrenType);
+export const genreQuestionScreenType = Object.assign({}, onAnswerType, onChangeType, genreQuestionType, renderPlayerType, childrenType, userAnswersType);
+
+export const genreQuestionItemType = Object.assign({}, answerType, idType, onChangeType, renderPlayerType, userAnswerType);
 
 export const audioPlayerType = Object.assign({}, onPlayButtonClickType, isPlayingType, srcType);
+
+export const winScreenType = Object.assign({}, questionsCountType, mistakesCountType, onReplayButtonClickType);
+
+export const gameScreenType = Object.assign({}, questionsType, stepType, onUserAnswerType, mistakesType);
+
+export const PlayerType = Object.assign({}, isLoadingType, onPlayButtonClickType, isPlayingType, childrenType);

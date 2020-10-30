@@ -1,10 +1,10 @@
 import React from "react";
-import {mistakesType} from "../types/types";
+import {mistakesCountType} from "../types/types";
 
 const Mistakes = (props) => {
-  const {count} = props;
+  const {mistakesCount} = props;
 
-  const mistakes = new Array(count).fill(``);
+  const mistakes = new Array(mistakesCount).fill(``);
 
   return (
     <div className="game__mistakes">
@@ -13,6 +13,6 @@ const Mistakes = (props) => {
   );
 };
 
-Mistakes.propTypes = mistakesType;
+Mistakes.propTypes = mistakesCountType;
 
 export default Mistakes;
