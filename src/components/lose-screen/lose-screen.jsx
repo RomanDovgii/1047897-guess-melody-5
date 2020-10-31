@@ -1,6 +1,11 @@
 import React from "react";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
+import {onReplayButtonClickType} from "../types/types";
 
-const LoseScreen = () => {
+const LoseScreen = (props) => {
+  const {onReplayButtonClick, resetGame} = props;
+
   return (
     <section className="result">
       <div className="result__logo">
@@ -11,9 +16,26 @@ const LoseScreen = () => {
 
       <p className="result__total result__total--fail">У вас закончились все попытки. Ничего, повезёт в следующий раз!</p>
 
-      <button className="replay" type="button">Попробовать ещё раз</button>
+      <button
+        className="replay"
+        type="button"
+        onClick={() => {
+          resetGame();
+          onReplayButtonClick();
+        }}>
+          Попробовать ещё раз
+      </button>
     </section>
   );
 };
 
-export default LoseScreen;
+LoseScreen.propTypes = onReplayButtonClickType;
+
+const mapDispatchToProps = (dispatch) => ({
+  resetGame() {
+    dispatch(ActionCreator.resetGame());
+  }
+});
+
+export {LoseScreen};
+export default connect(null, mapDispatchToProps)(LoseScreen);

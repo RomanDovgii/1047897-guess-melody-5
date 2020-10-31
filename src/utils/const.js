@@ -3,7 +3,7 @@ export const AUDIO_URL = `https://upload.wikimedia.org/wikipedia/commons/4/4e/BW
 
 export const GENRE_QUESTIONS_COUNT = 4;
 export const MUSICIAN_QUESTIONS_COUNT = 4;
-export const MAX_MISTAKE_COUNT = 3;
+export const MAX_MISTAKE_COUNT = 2;
 
 export const GameType = {
   MUSICIAN: `musician`,
