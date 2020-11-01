@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import {winScreenType} from "../types/types";
+import {winScreenType} from "../../types/types";
 
 const WinScreen = (props) => {
   const {questionsCount, mistakesCount, onReplayButtonClick, resetGame} = props;

@@ -1,5 +1,5 @@
 import React from "react";
-import {mistakesCountType} from "../types/types";
+import {mistakesCountType} from "../../types/types";
 
 const Mistakes = (props) => {
   const {mistakesCount} = props;

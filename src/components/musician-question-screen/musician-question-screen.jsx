@@ -1,5 +1,5 @@
 import React from "react";
-import {musicianQuestionScreenType} from "../types/types";
+import {musicianQuestionScreenType} from "../../types/types";
 
 const MusicianQuestionScreen = (props) => {
   const {onAnswer, question, renderPlayer, children} = props;

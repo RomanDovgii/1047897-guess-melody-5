@@ -1,6 +1,6 @@
 import React from "react";
 import GenreQuestionItem from "../genre-question-item/genre-question-item";
-import {genreQuestionScreenType} from "../types/types";
+import {genreQuestionScreenType} from "../../types/types";
 
 const GenreQuestionScreen = (props) => {
   const {onAnswer, onChange, question, renderPlayer, children, userAnswers} = props;

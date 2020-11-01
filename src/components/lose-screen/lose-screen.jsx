@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import {onReplayButtonClickType} from "../types/types";
+import {onReplayButtonClickType} from "../../types/types";
 
 const LoseScreen = (props) => {
   const {onReplayButtonClick, resetGame} = props;
