@@ -1,10 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
+import {resetGame} from "../../store/action";
 import {winScreenType} from "../../types/types";
 
 const WinScreen = (props) => {
-  const {questionsCount, mistakesCount, onReplayButtonClick, resetGame} = props;
+  const {questionsCount, mistakesCount, onReplayButtonClick, resetGameAction} = props;
   const correctQuestionsCount = questionsCount - mistakesCount;
 
   return (
@@ -21,7 +21,7 @@ const WinScreen = (props) => {
         className="replay"
         type="button"
         onClick={() => {
-          resetGame();
+          resetGameAction();
           onReplayButtonClick();
         }}>
           Сыграть ещё раз
@@ -38,8 +38,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  resetGame() {
-    dispatch(ActionCreator.resetGame());
+  resetGameAction() {
+    dispatch(resetGame());
   }
 });
 

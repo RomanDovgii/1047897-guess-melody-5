@@ -34,8 +34,6 @@ const withPlayer = (Component) => {
     }
   }
 
-  WithPlayer.propTypes = {};
-
   return WithPlayer;
 };
 

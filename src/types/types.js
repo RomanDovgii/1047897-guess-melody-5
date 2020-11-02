@@ -61,7 +61,7 @@ const questionType = {
 };
 
 export const questionsType = {
-  questions: PropTypes.arrayOf(questionsType.question).isRequired
+  questions: PropTypes.arrayOf(questionType.question).isRequired
 };
 
 export const mistakesType = {
@@ -115,6 +115,26 @@ const isLoadingType = {
   isLoading: PropTypes.bool.isRequired
 };
 
+const onSubmitType = {
+  onSubmit: PropTypes.func.isRequired
+};
+
+const authorizationStatusType = {
+  authorizationStatus: PropTypes.string.isRequired
+};
+
+const exactType = {
+  exact: PropTypes.bool.isRequired
+};
+
+const pathType = {
+  path: PropTypes.string.isRequired
+};
+
+const renderType = {
+  render: PropTypes.func.isRequired
+};
+
 export const welcomeType = Object.assign({}, errorsCountType, onPlayButtonClickType);
 
 export const musicianQuestionScreenType = Object.assign({}, onAnswerType, musicianQuestionType, renderPlayerType, childrenType);
@@ -134,3 +154,7 @@ export const PlayerType = Object.assign({}, isLoadingType, onPlayButtonClickType
 export const withUserAnswerType = Object.assign({}, questionType, onAnswerType);
 
 export const withAudioType = Object.assign({}, isPlayingType, onPlayButtonClickType, srcType);
+
+export const LoginScreenType = Object.assign({}, onSubmitType, onReplayButtonClickType);
+
+export const PrivateRouteType = Object.assign({}, authorizationStatusType, exactType, pathType, renderType);
