@@ -1,6 +1,7 @@
 import {loadQuestions, requireAuthorization, redirectToRoute} from "./action";
 import {AuthorizationStatus, AppRoute, APIRoute} from "../utils/const";
 
+
 export const fetchQuestionList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.QUESTIONS)
     .then(({data}) => dispatch(loadQuestions(data)))

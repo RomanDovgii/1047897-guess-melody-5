@@ -1,11 +1,9 @@
 export const AVATAR_URL = `https://api.adorable.io/avatars/128`;
 export const AUDIO_URL = `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`;
-export const BACKEND_URL = `https://5.react.pages.academy/guess-melody`;
 
 export const GENRE_QUESTIONS_COUNT = 4;
 export const MUSICIAN_QUESTIONS_COUNT = 4;
 export const MAX_MISTAKE_COUNT = 2;
-export const REQUEST_TIMEOUT = 5000;
 
 export const GameType = {
   MUSICIAN: `musician`,
@@ -50,10 +48,6 @@ export const APIRoute = {
 export const AuthorizationStatus = {
   AUTH: `AUTH`,
   NO_AUTH: `NO_AUTH`
-};
-
-export const HttpCode = {
-  UNAUTHORIZED: 401
 };
 
 export const NameSpace = {

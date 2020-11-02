@@ -1,11 +1,17 @@
 import axios from "axios";
-import {BACKEND_URL, REQUEST_TIMEOUT, HttpCode} from "../utils/const";
+
+const BACKEND_URL = `https://5.react.pages.academy/guess-melody`;
+const REQUEST_TIMEOUT = 5000;
+
+const HttpCode = {
+  UNAUTHORIZED: 401
+};
 
 export const createAPI = (onUnauthorized) => {
   const api = axios.create({
-    baseUrl: BACKEND_URL,
+    baseURL: BACKEND_URL,
     timeout: REQUEST_TIMEOUT,
-    withCredentials: true
+    withCredentials: true,
   });
 
   const onSuccess = (response) => response;
