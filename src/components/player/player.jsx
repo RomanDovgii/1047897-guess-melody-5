@@ -1,5 +1,5 @@
 import React from "react";
-import {PlayerType} from "../types/types";
+import {PlayerType} from "../../types/types";
 
 const Player = (props) => {
   const {isLoading, onPlayButtonClick, isPlaying, children} = props;

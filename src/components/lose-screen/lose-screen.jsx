@@ -1,10 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../store/action";
-import {onReplayButtonClickType} from "../types/types";
+import {resetGame} from "../../store/action";
+import {onReplayButtonClickType} from "../../types/types";
 
 const LoseScreen = (props) => {
-  const {onReplayButtonClick, resetGame} = props;
+  const {onReplayButtonClick, resetGameAction} = props;
 
   return (
     <section className="result">
@@ -20,7 +20,7 @@ const LoseScreen = (props) => {
         className="replay"
         type="button"
         onClick={() => {
-          resetGame();
+          resetGameAction();
           onReplayButtonClick();
         }}>
           Попробовать ещё раз
@@ -32,8 +32,8 @@ const LoseScreen = (props) => {
 LoseScreen.propTypes = onReplayButtonClickType;
 
 const mapDispatchToProps = (dispatch) => ({
-  resetGame() {
-    dispatch(ActionCreator.resetGame());
+  resetGameAction() {
+    dispatch(resetGame());
   }
 });
 

@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import Player from "../../player/player";
+import Player from "../../components/player/player";
 import withAudio from "../with-audio/with-audio";
 
 const AudioPlayer = withAudio(Player);
@@ -33,8 +33,6 @@ const withPlayer = (Component) => {
       />;
     }
   }
-
-  WithPlayer.propTypes = {};
 
   return WithPlayer;
 };
