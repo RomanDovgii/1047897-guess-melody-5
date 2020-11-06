@@ -3,7 +3,7 @@ export const extend = (a, b) => {
 };
 
 export const isMusicianAnswerCorrect = (question, userAnswer) => {
-  return userAnswer.musician === question.song.musician;
+  return userAnswer.artist === question.song.artist;
 };
 
 export const isGenreAnswerCorrect = (question, userAnswer) => {

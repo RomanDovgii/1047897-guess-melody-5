@@ -14,11 +14,11 @@ const srcType = {
 const musicianQuestionType = {
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
-      musician: PropTypes.string.isRequired,
+      artist: PropTypes.string.isRequired,
       picture: PropTypes.string.isRequired
     })).isRequired,
     song: PropTypes.shape({
-      musician: PropTypes.string.isRequired,
+      artist: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired
     }).isRequired,
     type: PropTypes.string.isRequired

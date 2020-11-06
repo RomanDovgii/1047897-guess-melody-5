@@ -32,7 +32,7 @@ const MusicianQuestionScreen = (props) => {
         <form className="game__artist">
 
           {answers.map((answer, i) => (
-            <div key={answer.musician} className="artist">
+            <div key={`${answer.musician}-${i}`} className="artist">
               <input
                 className="artist__input visually-hidden"
                 type="radio"

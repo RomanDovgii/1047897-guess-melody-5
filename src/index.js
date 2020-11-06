@@ -35,4 +35,7 @@ Promise.all([
       </Provider>,
       document.querySelector(`#root`)
   );
+})
+.catch((err) => {
+  throw err;
 });
