@@ -8,7 +8,7 @@ export const MAX_MISTAKE_COUNT = 2;
 export const REQUEST_TIMEOUT = 5000;
 
 export const GameType = {
-  MUSICIAN: `musician`,
+  MUSICIAN: `artist`,
   GENRE: `genre`
 };
 
@@ -39,7 +39,7 @@ export const AppRoute = {
   LOSE: `/lose`,
   RESULT: `/result`,
   ROOT: `/`,
-  GANE: `/game`
+  GAME: `/game`
 };
 
 export const APIRoute = {

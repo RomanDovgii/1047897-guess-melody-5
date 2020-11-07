@@ -1,7 +1,7 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {GameType, MAX_MISTAKE_COUNT} from "../../utils/const";
+import {GameType, MAX_MISTAKE_COUNT, AppRoute} from "../../utils/const";
 import MusicianQuestionScreen from "../musician-question-screen/musician-question-screen";
 import GenreQuestionSreen from "../genre-question-screen/genre-question-screen";
 import {gameScreenType} from "../../types/types";
@@ -19,13 +19,13 @@ const GameScreen = (props) => {
 
   if (mistakes >= MAX_MISTAKE_COUNT) {
     return (
-      <Redirect to="/lose"/>
+      <Redirect to={AppRoute.LOSE}/>
     );
   }
 
   if (step >= questions.length || !question) {
     return (
-      <Redirect to="/result"/>
+      <Redirect to={AppRoute.RESULT}/>
     );
   }
 
@@ -33,6 +33,7 @@ const GameScreen = (props) => {
     case GameType.MUSICIAN:
       return (
         <MusicicanQuestionScreenWrapper
+          key={step}
           question={question}
           onAnswer={onUserAnswer}
         >
@@ -42,6 +43,7 @@ const GameScreen = (props) => {
     case GameType.GENRE:
       return (
         <GenreQuestionSreenWrapper
+          key={step}
           question={question}
           onAnswer={onUserAnswer}
         >
@@ -50,15 +52,15 @@ const GameScreen = (props) => {
       );
   }
 
-  return <Redirect to="/" />;
+  return <Redirect to={AppRoute.ROOT} />;
 };
 
 GameScreen.propTypes = gameScreenType;
 
-const mapStateToProps = (state) => ({
-  step: state.step,
-  mistakes: state.mistakes,
-  questions: state.questions
+const mapStateToProps = ({GAME, DATA}) => ({
+  step: GAME.step,
+  mistakes: GAME.mistakes,
+  questions: DATA.questions
 });
 
 const mapDispatchToProps = (dispatch) => ({
