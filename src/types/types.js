@@ -135,6 +135,13 @@ const renderType = {
   render: PropTypes.func.isRequired
 };
 
+export const childrenTestType = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
 export const welcomeType = Object.assign({}, errorsCountType, onPlayButtonClickType);
 
 export const musicianQuestionScreenType = Object.assign({}, onAnswerType, musicianQuestionType, renderPlayerType, childrenType);

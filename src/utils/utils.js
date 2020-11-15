@@ -11,3 +11,5 @@ export const isGenreAnswerCorrect = (question, userAnswer) => {
     return it === (question.answers[i].genre === question.genre);
   });
 };
+
+export const noop = () => {};
