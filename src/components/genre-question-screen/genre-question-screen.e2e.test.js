@@ -42,6 +42,7 @@ it(
             onAnswer={onAnswer}
             question={question}
             renderPlayer={noop}
+            onChange={noop}
             userAnswers={userAnswers}
           >
             <React.Fragment/>
