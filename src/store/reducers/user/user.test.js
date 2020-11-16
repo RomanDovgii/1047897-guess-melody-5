@@ -43,7 +43,7 @@ describe(
     `Async operation works correctly`,
     () => {
       it(
-          `Should make a correct API call to /login`,
+          `Should make a correct API call to /login without login`,
           () => {
             const apiMock = new MockAdapter(api);
             const dispatch = jest.fn();
@@ -65,15 +65,15 @@ describe(
       );
 
       it(
-          `Should make a correct API call to /login`,
+          `Should make a correct API call to /login with login`,
           () => {
             const apiMock = new MockAdapter(api);
             const dispatch = jest.fn();
-            const fakeUser = {login: `tester@test.com`, password: `123456`};
+            const fakeUser = {login: `test@test.ru`, password: `123456`};
             const questionLoader = login(fakeUser);
 
             apiMock
-              .onGet(APIRoute.LOGIN)
+              .onPost(APIRoute.LOGIN)
               .reply(200, [{fake: true}]);
 
             return questionLoader(dispatch, () => {}, api)

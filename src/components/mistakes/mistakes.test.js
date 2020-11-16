@@ -11,7 +11,7 @@ describe(
             const tree = renderer
             .create(
                 <Mistakes
-                  count={0}
+                  mistakesCount={0}
                 />
             )
             .toJSON();

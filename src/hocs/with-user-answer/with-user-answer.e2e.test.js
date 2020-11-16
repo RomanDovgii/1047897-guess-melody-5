@@ -44,15 +44,15 @@ it(
           />
       );
 
-      expect(wrapper.props().userAnswer).toEqual([false, false, false, false]);
+      expect(wrapper.props().userAnswers).toEqual([false, false, false, false]);
 
       wrapper.props().onChange(0, true);
-      expect(wrapper.props().userAnswer).toEqual([true, false, false, false]);
+      expect(wrapper.props().userAnswers).toEqual([true, false, false, false]);
 
       wrapper.props().onChange(0, false);
-      expect(wrapper.props().userAnswer).toEqual([false, false, false, false]);
+      expect(wrapper.props().userAnswers).toEqual([false, false, false, false]);
 
       wrapper.props().onChange(1, true);
-      expect(wrapper.props.userAnswer).toEqual([false, true, false, false]);
+      expect(wrapper.props().userAnswers).toEqual([false, true, false, false]);
     }
 );
