@@ -19,7 +19,7 @@ const withAudio = (Component) => {
       }
 
       return () => {
-        audio = null;
+        audio.oncanplaythrough = null;
       };
     }, [isPlaying]);
 
