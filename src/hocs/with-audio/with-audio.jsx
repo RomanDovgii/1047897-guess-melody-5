@@ -12,16 +12,20 @@ const withAudio = (Component) => {
       audio.src = src;
       audio.oncanplaythrough = () => updateLoading(false);
 
-      if (isPlaying) {
-        audio.play();
-      } else {
-        audio.pause();
+      switch (true) {
+        case isPlaying && !isLoading:
+          audio.play();
+          break;
+
+        case !isPlaying && !isLoading:
+          audio.pause();
+          break;
       }
 
       return () => {
         audio.oncanplaythrough = null;
       };
-    }, [isPlaying]);
+    }, [isPlaying, isLoading]);
 
     return (
       <Component
