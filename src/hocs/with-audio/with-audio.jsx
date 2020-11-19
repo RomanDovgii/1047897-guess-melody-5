@@ -8,17 +8,18 @@ const withAudio = (Component) => {
     const audioRef = createRef();
 
     useEffect(() => {
-      audioRef.current.src = src;
-      audioRef.current.oncanplaythrough = () => updateLoading(false);
+      const audio = audioRef.current;
+      audio.src = src;
+      audio.oncanplaythrough = () => updateLoading(false);
 
       if (isPlaying) {
-        audioRef.current.play();
+        audio.play();
       } else {
-        audioRef.current.pause();
+        audio.pause();
       }
 
       return () => {
-        audioRef.current = null;
+        audio = null;
       };
     }, [isPlaying]);
 

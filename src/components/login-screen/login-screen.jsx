@@ -1,72 +1,60 @@
-import React, {createRef, PureComponent} from "react";
+import React, {createRef} from "react";
 import {connect} from "react-redux";
 import {login} from "../../store/api-actions";
 import {LoginScreenType} from "../../types/types";
 
-class LoginScreen extends PureComponent {
-  constructor(props) {
-    super(props);
+const LoginScreen = (props) => {
+  const {onReplayButtonClick, onSubmit} = props;
 
-    this.loginRef = createRef();
-    this.passwordRef = createRef();
+  const loginRef = createRef();
+  const passwordRef = createRef();
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  return (
+    <section className="login">
+      <div className="login__logo">
+        <img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"/>
+      </div>
 
-  handleSubmit(evt) {
-    const {onSubmit} = this.props;
+      <h2 className="login__title">Вы настоящий меломан!</h2>
 
-    evt.preventDefault();
+      <p className="login__text">Хотите узнать свой результат? Представтесь!</p>
 
-    onSubmit({
-      login: this.loginRef.current.value,
-      password: this.passwordRef.current.value
-    });
-  }
+      <form
+        className="login__form"
+        action=""
+        onSubmit={(evt) => {
+          evt.preventDefault();
 
-  render() {
-    const {onReplayButtonClick} = this.props;
+          onSubmit({
+            login: loginRef.current.value,
+            password: passwordRef.current.value
+          });
+        }}
+      >
+        <p className="login__field">
+          <label className="login__label" htmlFor="name">Логин</label>
+          <input className="login__input" type="text" name="name" id="name" ref={loginRef}/>
+        </p>
 
-    return (
-      <section className="login">
-        <div className="login__logo">
-          <img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83"/>
-        </div>
+        <p className="login__field">
+          <label className="login__label" htmlFor="password">Пароль</label>
+          <input className="login__input" type="text" name="password" id="password" ref={passwordRef}/>
+          <span className="login__error">Неверный пароль</span>
+        </p>
 
-        <h2 className="login__title">Вы настоящий меломан!</h2>
+        <button className="login__button button" type="submit">Войти</button>
+      </form>
 
-        <p className="login__text">Хотите узнать свой результат? Представтесь!</p>
-
-        <form
-          className="login__form"
-          action=""
-          onSubmit={this.handleSubmit}
-        >
-          <p className="login__field">
-            <label className="login__label" htmlFor="name">Логин</label>
-            <input className="login__input" type="text" name="name" id="name" ref={this.loginRef}/>
-          </p>
-
-          <p className="login__field">
-            <label className="login__label" htmlFor="password">Пароль</label>
-            <input className="login__input" type="text" name="password" id="password" ref={this.passwordRef}/>
-            <span className="login__error">Неверный пароль</span>
-          </p>
-
-          <button className="login__button button" type="submit">Войти</button>
-        </form>
-
-        <button
-          className="replay"
-          type="button"
-          onClick={onReplayButtonClick}
-        >
-          Сыграть ещё раз
-        </button>
-      </section>
-    );
-  }
-}
+      <button
+        className="replay"
+        type="button"
+        onClick={onReplayButtonClick}
+      >
+        Сыграть ещё раз
+      </button>
+    </section>
+  );
+};
 
 LoginScreen.propTypes = LoginScreenType;
 

@@ -78,8 +78,8 @@ describe(
                     step={1}
                     mistakes={0}
                     questions={questions}
-                    onUserAnswer={() => {}}
-                    resetGameAction={() => {}}
+                    onUserAnswer={noop}
+                    resetGameAction={noop}
                   />,
                   {
                     createNodeMock: () => {
