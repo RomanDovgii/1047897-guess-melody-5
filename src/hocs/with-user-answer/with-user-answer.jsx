@@ -1,50 +1,27 @@
-import React, {PureComponent} from "react";
+import React, {useState} from "react";
 import {withUserAnswerType} from "../../types/types";
 
 const withUserAnswer = (Component) => {
-  class WithUserAnswer extends PureComponent {
-    constructor(props) {
-      super(props);
+  const WithUserAnswer = (props) => {
+    const {onAnswer, question} = props;
+    const [answers, updateAnswers] = useState(new Array(question.answers.length).fill(false));
 
-      this.state = {
-        answers: new Array(props.question.answers.length).fill(false)
-      };
+    return (
+      <Component
+        {...props}
+        userAnswers={answers}
+        onAnswer={() => {
+          onAnswer(question, answers);
+        }}
+        onChange={(i, value) => {
+          const userAnswers = answers.slice();
+          userAnswers[i] = value;
 
-      this.handleAnswer = this.handleAnswer.bind(this);
-      this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleAnswer() {
-      const {onAnswer, question} = this.props;
-      const {answers} = this.state;
-
-      onAnswer(question, answers);
-    }
-
-    handleChange(i, value) {
-      const {answers} = this.state;
-
-      const userAnswers = answers.slice();
-      userAnswers[i] = value;
-
-      this.setState({
-        answers: userAnswers
-      });
-    }
-
-    render() {
-      const answers = this.state.answers;
-
-      return (
-        <Component
-          {...this.props}
-          userAnswers={answers}
-          onAnswer={this.handleAnswer}
-          onChange={this.handleChange}
-        />
-      );
-    }
-  }
+          updateAnswers(userAnswers);
+        }}
+      />
+    );
+  };
 
   WithUserAnswer.propTypes = withUserAnswerType;
 
